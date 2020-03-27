@@ -20,7 +20,7 @@ function LandingPage() {
     const fetchMovies = (path) => {
         axios.get(path)
         .then(res => {
-            console.log(res)
+            // console.log(res)
             setMovies([...movies, ...res.data.results])
             setPage(res.data.page)
         })
@@ -34,15 +34,14 @@ function LandingPage() {
         fetchMovies(pagePoint)
     }
 
-
     return (
         <div style = {{width:'100%', margin: 0 }}>
             {/* Movie Main Image */}
-                {movies[6] && 
+                {movies[0] && 
                     <MainImage
-                        image = {`${IMG_URL}w1280${movies[6].backdrop_path}`}
-                        title = {movies[6].original_title} 
-                        text = {movies[6].overview} />
+                        image = {`${IMG_URL}w1280${movies[0].backdrop_path}`}
+                        title = {movies[0].original_title} 
+                        text = {movies[0].overview} />
                 }
             {/* Body */}
             <div style={{ width: '85%', margin: '1rem auto' }} >
