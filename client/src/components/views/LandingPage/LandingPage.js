@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react'
-// import { FaCode } from "react-icons/fa";
-import { API_URL, API_KEY, IMG_URL } from '../../Config';
-import { Typography, Row, Button } from 'antd';
 import axios from 'axios'
 import MainImage from './Sections/MainImage';
 import GridCard from './Sections/GridCard';
-const { Title } = Typography;
+import { API_URL, API_KEY, IMG_URL } from '../../Config';
+import { Typography, Row, Button } from 'antd';
+// import { FaCode } from "react-icons/fa";
 
+const { Title } = Typography;
 const endPoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`
 
 function LandingPage() {
@@ -20,7 +20,6 @@ function LandingPage() {
     const fetchMovies = (path) => {
         axios.get(path)
         .then(res => {
-            // console.log(res)
             setMovies([...movies, ...res.data.results])
             setPage(res.data.page)
         })
@@ -47,7 +46,6 @@ function LandingPage() {
             <div style={{ width: '85%', margin: '1rem auto' }} >
                 <Title level={2}> Latest Movies </Title>
                 <hr />
-
                 {/* Grid Cards */}
                 <Row  gutter={[16, 16]}>
                     {movies && movies.map((movie, index) =>(
