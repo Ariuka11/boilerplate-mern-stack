@@ -4,6 +4,7 @@ import { API_KEY, API_URL, IMG_URL } from '../../Config'
 import MainImage from '../LandingPage/Sections/MainImage'
 import GridCard from '../LandingPage/Sections/GridCard'
 import { Button, Descriptions, Row, Badge } from 'antd'
+import Favourite from './Sections/Favourite'
 
 
 function MovieDetailPage(props) {
@@ -55,7 +56,7 @@ function MovieDetailPage(props) {
                 <div style={{ width: '85%', margin: '1rem auto' }}>
                     {/* Favourite Button */}
                     <div style= {{display :'flex', justifyContent :"flex-end"}}> 
-                        <Button>Favourite</Button>
+                        <Favourite userId = {localStorage.getItem("userId")} movieId={movieId} movieInfo = {movie} />
                     </div>
 
                     {/* Movie Info Table */}
